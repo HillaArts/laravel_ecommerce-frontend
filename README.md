@@ -17,21 +17,21 @@ This is the frontend for the ecommerce platform built with Next.js. The project 
 The project structure follows a modular approach with a clear separation of concerns. Here’s a breakdown of the main directories and files:
 
 ecommerce-frontend/
-├── components/          # Reusable components
-│   ├── Cart/            # Cart-related components
-│   ├── Orders/          # Order-related components
-├── pages/               # Next.js pages
-│   ├── cart.js          # Cart page
-│   ├── orders.js        # Orders page
-│   ├── index.js         # Home page
-├── services/            # API services for Cart and Orders
+├── components/          # Reusable components.
+│   ├── Cart/            # Cart-related components.
+│   ├── Orders/          # Order-related components.
+├── pages/               # Next.js pages.
+│   ├── cart.js          # Cart page.
+│   ├── orders.js        # Orders page.
+│   ├── index.js         # Home page.
+├── services/            # API services for Cart and Orders.
 │   ├── cartService.js   # API for cart
-│   ├── orderService.js  # API for orders
-├── utils/               # Helper functions (e.g., currency formatter)
+│   ├── orderService.js  # API for orders.
+├── utils/               # Helper functions (e.g., currency formatter).
 │   └── formatCurrency.js
-├── public/              # Public assets
-├── package.json         # Project dependencies
-└── next.config.js       # Next.js configuration
+├── public/              # Public assets.
+├── package.json         # Project dependencies.
+└── next.config.js       # Next.js configuration.
 
 #### components/
 
