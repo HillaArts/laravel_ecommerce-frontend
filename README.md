@@ -16,7 +16,8 @@ This is the frontend for the ecommerce platform built with Next.js. The project 
 
 The project structure follows a modular approach with a clear separation of concerns. Here’s a breakdown of the main directories and files:
 
-# ecommerce-frontend/
+#### Project Structure
+app/
 ├── components/          # Reusable components
 │   ├── Cart/            # Cart-related components
 │   ├── Orders/          # Order-related components
