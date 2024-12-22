@@ -18,21 +18,21 @@ The project structure follows a modular approach with a clear separation of conc
 
 #### Project Structure
 app/
-├── components/          Reusable components
-│   ├── Cart/            Cart-related components
-│   ├── Orders/          Order-related components
-├── pages/               Next.js pages
-│   ├── cart.js          Cart page
-│   ├── orders.js        Orders page
-│   ├── index.js         Home page
-├── services/            API services for Cart and Orders
-│   ├── cartService.js   API for cart
-│   ├── orderService.js  API for orders
-├── utils/               elper functions (e.g., currency formatter)
+├── components/# Reusable components
+│   ├── Cart/# Cart-related components
+│   ├── Orders/# Order-related components
+├── pages/# Next.js pages
+│   ├── cart.js/# Cart page
+│   ├── orders.js# Orders page
+│   ├── index.js/# Home page
+├── services/# API services for Cart and Orders
+│   ├── cartService.js/# API for cart
+│   ├── orderService.js/ #API for orders
+├── utils/# Helper functions (e.g., currency formatter)
 │   └── formatCurrency.js
-├── public/              Public assets
-├── package.json         Project dependencies
-└── next.config.js       Next.js configuration
+├── public/#               Public assets
+├── package.json/#         Project dependencies
+└── next.config.js/#       Next.js configuration
 
 #### components/
 
