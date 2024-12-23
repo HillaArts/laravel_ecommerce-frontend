@@ -1,6 +1,7 @@
+"use client";
 import { useState, useEffect } from 'react';
 import { getOrders } from '../services/orderService';
-import formatCurrency from '../utils/formatCurrency';
+// import formatCurrency from '../utils/formatCurrency';
 import OrderItem from '../components/Orders/OrderItem';
 import OrderSummary from '../components/Orders/OrderSummary';
 
