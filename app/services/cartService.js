@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost/api/cart'; // Replace with your Laravel API base URL
+const API_URL = 'http://localhost:8000/api/cart';
 
 /**
  * Adds a product to the cart.
