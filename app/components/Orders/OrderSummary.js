@@ -1,4 +1,4 @@
-import formatCurrency from '../../utils/formatCurrency';
+// import formatCurrency from '../utils/formatCurrency';
 
 /**
  * OrderSummary Component - Displays the summary of an individual order, including total price.
