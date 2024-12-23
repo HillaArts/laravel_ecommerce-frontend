@@ -1,6 +1,6 @@
-import formatCurrency from '../../utils/formatCurrency';
+// import formatCurrency from '../utils/formatCurrency';
 
-**
+/**
  * CartActions Component - Displays actions for placing an order or continuing shopping.
  * 
  * @param {Function} onPlaceOrder - The function to place the order.
