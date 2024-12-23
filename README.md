@@ -32,7 +32,7 @@ The project structure follows a modular approach with a clear separation of conc
 ##### │   └── formatCurrency.js
 ##### ├── public/                   # Public assets
 ##### ├── package.json/             # Project dependencies
-#####── next.config.js/             # Next.js configuration
+##### ── next.config.js/             # Next.js configuration
 
 #### components/
 
