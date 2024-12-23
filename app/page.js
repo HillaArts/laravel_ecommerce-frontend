@@ -1,6 +1,7 @@
+"use client";
 import { useState, useEffect } from 'react';
-import { getCart } from '../services/cartService';
-import { getOrders } from '../services/orderService';
+import { getCart } from './services/cartService';
+import { getOrders } from './services/orderService';
 import formatCurrency from '../utils/formatCurrency';
 import Link from 'next/link';
 
