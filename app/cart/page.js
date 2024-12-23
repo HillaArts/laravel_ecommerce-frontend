@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from 'react';
 import { getCart, addToCart, removeFromCart } from '../services/cartService';
 import CartItem from '../components/Cart/CartItem';
