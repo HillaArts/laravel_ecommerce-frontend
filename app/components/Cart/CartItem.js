@@ -1,4 +1,4 @@
-import formatCurrency from '../../utils/formatCurrency';
+// import formatCurrency from '../utils/formatCurrency';
 
 /**
  * CartItem Component - Displays a single item in the cart.
