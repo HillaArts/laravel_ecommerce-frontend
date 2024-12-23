@@ -1,4 +1,4 @@
-import formatCurrency from '../../utils/formatCurrency';
+// import formatCurrency from '../utils/formatCurrency';
 
 /**
  * CartSummary Component - Displays the cart summary including total price.
