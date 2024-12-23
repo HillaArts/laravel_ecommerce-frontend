@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost/api/orders'; // Replace with your Laravel API base URL
+const API_URL = 'http://localhost:8000/api/orders';
 
 /**
  * Fetches all orders for the authenticated user.
