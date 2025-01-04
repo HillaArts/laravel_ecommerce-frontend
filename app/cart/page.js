@@ -84,7 +84,7 @@ const CartPage = () => {
           <div className="flex flex-col items-center text-gray-500 mt-16">
             {/* Unique empty cart image */}
             <img
-              src="/unique-empty-cart-image.svg"
+              src="/Creating-a-Shopping-Cart-With-Laravel.png"
               alt="Empty Cart"
               className="w-64 h-64 opacity-75 animate-bounce"
             />
