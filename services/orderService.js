@@ -7,7 +7,7 @@ import api from './api';
  */
 export const placeOrder = async (orderData) => {
   try {
-    const response = await api.post('/orders', orderData); // Align route to /orders
+    const response = await api.post('/orders', orderData);s
     return response.data;
   } catch (error) {
     console.error('Error placing order:', error);
@@ -21,7 +21,7 @@ export const placeOrder = async (orderData) => {
  */
 export const viewOrders = async () => {
   try {
-    const response = await api.get('/orders'); // Align route to /orders
+    const response = await api.get('/orders');
     return response.data;
   } catch (error) {
     console.error('Error fetching orders:', error);
