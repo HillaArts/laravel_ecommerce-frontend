@@ -79,7 +79,7 @@ jobs:
 
             # Pull the latest Docker image and restart the containers
             docker pull hillaarts/backend-image:latest
-            docker run -d -p 6381:6379 hillaarts/frontend-image:latest
+            docker run -d -p 3000:3000 hillaarts/frontend-image:latest
 
           EOF
 
