@@ -49,7 +49,39 @@ jobs:
           docker tag my-frontend:latest hillaarts/mfrontend-image:latest
           docker push hillaarts/frontend-image:latest
 
-      # Deploy the app to server using SSH
+      # Deploy the app to the server using SSH
       - name: Deploy to Server
         run: |
-          ssh -i ${{ secrets.SSH_PRIVATE_KEY }} user@your-server-ip 'docker pull hillaarts/frontend-image:latest && docker-compose up -d'
+          # Ensure private key file exists and has correct permissions
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > /tmp/ssh_private_key
+          chmod 600 /tmp/ssh_private_key
+
+          # Create the .ssh directory if it doesn't exist
+          mkdir -p /home/runner/.ssh
+
+          # Add the server's SSH key to known hosts to avoid authenticity prompts
+          ssh-keyscan -H 35.153.33.107 >> /home/runner/.ssh/known_hosts
+
+          # SSH into the server and install Docker (if not already installed)
+          ssh -i /tmp/ssh_private_key ubuntu@35.153.33.107 << 'EOF'
+            # Update package list and install Docker if not installed
+            sudo apt-get update
+            sudo apt-get install -y docker.io docker-compose
+
+            # Add the ubuntu user to the docker group to allow Docker usage without sudo
+            sudo usermod -aG docker ubuntu
+
+            # Log out and log back in to apply group changes (automated workaround)
+            newgrp docker
+
+            # Navigate to the root directory where docker-compose.yml is located
+            # cd /
+
+            # Pull the latest Docker image and restart the containers
+            docker pull hillaarts/backend-image:latest
+            docker run -d -p 6381:6379 hillaarts/frontend-image:latest
+
+          EOF
+
+          # Clean up the private key file
+          rm -f /tmp/ssh_private_key
