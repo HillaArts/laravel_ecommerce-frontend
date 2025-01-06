@@ -13,7 +13,7 @@ import Loader from './../components/Loader';
  * @returns {JSX.Element} The OrdersPage component showing the user's order history and a place order option.
  */
 const OrdersPage = () => {
-  const [orders, setOrders] = useState(null); // State to store fetched orders
+  const [orders, setOrders] = useState([]); // State to store fetched orders (initialized as an empty array)
   const [loading, setLoading] = useState(true); // State to handle loading state
   const [placingOrder, setPlacingOrder] = useState(false); // State to manage order placement state
   const [error, setError] = useState(null); // State to store any error messages during order placement
@@ -26,9 +26,10 @@ const OrdersPage = () => {
     const fetchOrders = async () => {
       try {
         const data = await viewOrders(); // Fetch order data from the backend service
-        setOrders(data); // Set orders state with fetched data
+        setOrders(Array.isArray(data) ? data : []); // Ensure orders is always an array
       } catch (error) {
         console.error('Error fetching orders:', error); // Log error if fetching fails
+        setError('Error fetching your orders. Please try again later.');
       } finally {
         setLoading(false); // Set loading state to false once fetching is complete
       }
@@ -89,7 +90,7 @@ const OrdersPage = () => {
 
       {/* Order History */}
       <div className="space-y-6">
-        {orders && orders.length > 0 ? (
+        {orders.length > 0 ? (
           orders.map((order) => (
             <div
               key={order.id}
