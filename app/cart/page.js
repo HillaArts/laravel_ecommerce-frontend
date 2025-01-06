@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
-import { viewCart, addToCart, removeFromCart } from '@/services/cartService';
+import { viewCart, removeFromCart } from '@/services/cartService';
 import CartItem from '../components/CartItem';
 import Loader from '../components/Loader';
 import { ToastContainer, toast } from 'react-toastify';
@@ -27,15 +27,15 @@ const CartPage = () => {
     fetchCart();
   }, []);
 
-  const handleAddToCart = async (product) => {
-    try {
-      const updatedCart = await addToCart(product);
-      setCart(updatedCart);
-      toast.success('Item added to cart!');
-    } catch (error) {
-      toast.error('Failed to add item to cart. Please try again.');
-    }
-  };
+  // const handleAddToCart = async (product) => {
+  //   try {
+  //     const updatedCart = await addToCart(product);
+  //     setCart(updatedCart);
+  //     toast.success('Item added to cart!');
+  //   } catch (error) {
+  //     toast.error('Failed to add item to cart. Please try again.');
+  //   }
+  // };
 
   const handleRemove = async (productId) => {
     try {
@@ -47,17 +47,17 @@ const CartPage = () => {
     }
   };
 
-  const handleUpdateQuantity = async (productId, newQuantity) => {
-    try {
-      const updatedItem = await updateCartQuantity(productId, newQuantity);
-      setCart(cart.map((item) =>
-        item.productId === productId ? { ...item, quantity: updatedItem.quantity } : item
-      ));
-      toast.info('Quantity updated successfully.');
-    } catch (error) {
-      toast.error('Failed to update the quantity. Try again.');
-    }
-  };
+  // const handleUpdateQuantity = async (productId, newQuantity) => {
+  //   try {
+  //     const updatedItem = await updateCartQuantity(productId, newQuantity);
+  //     setCart(cart.map((item) =>
+  //       item.productId === productId ? { ...item, quantity: updatedItem.quantity } : item
+  //     ));
+  //     toast.info('Quantity updated successfully.');
+  //   } catch (error) {
+  //     toast.error('Failed to update the quantity. Try again.');
+  //   }
+  // };
 
   if (loading) return <Loader />;
 
