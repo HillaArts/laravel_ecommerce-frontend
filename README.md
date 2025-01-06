@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Ecommerce Frontend
+This is the frontend for the ecommerce platform built with Next.js. The project integrates with a Laravel backend to manage the cart, orders, and products. It is designed to be dynamic, modern, and user-friendly, following best practices in web development.
 
-## Getting Started
+Table of Contents
+Project Structure
+Installation
+Features
+Technologies Used
+API Services
+Styling
+Helpers
+Project Structure
+The project structure follows a modular approach with a clear separation of concerns. Here’s a breakdown of the main directories and files:
 
-First, run the development server:
+Project Structure
+app/
+├── components/ # Reusable components
+│ ├── Cart/ # Cart-related components
+│ ├── Orders/ # Order-related components
+├── pages/ # Next.js pages
+│ ├── cart.js # Cart page
+│ ├── orders.js # Orders page
+├── index.js # Home page
+|── services/ # API services for Cart and Orders
+│ ├── cartService.js # API for cart
+│ ├── orderService.js # API for orders
+├── utils/ # Helper functions (e.g., currency formatter)
+│ └── formatCurrency.js
+├── public/ # Public assets
+├── package.json/ # Project dependencies
+── next.config.js/ # Next.js configuration
+components/
+This directory contains reusable React components for the frontend.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Cart: Components related to cart management (e.g., CartItem, CartSummary). Orders: Components related to displaying and managing orders (e.g., OrderSummary, OrderItem).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+pages/
+This directory contains the main pages of the website.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+cart/page.js: Page displaying the current user's cart and the option to add/remove items.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+orders/page.js: Page displaying the orders placed by the user. page.js: Home page, where users can view products and access the cart.
 
-## Learn More
+services/
+This directory contains files responsible for making API requests to the Laravel backend.
 
-To learn more about Next.js, take a look at the following resources:
+cartService.js: Provides functions for interacting with the cart (e.g., adding/removing items).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+orderService.js: Provides functions for interacting with the orders (e.g., placing orders, viewing order history).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+utils/
+This directory contains helper functions, such as currency formatting.
 
-## Deploy on Vercel
+formatCurrency.js: A utility function to format prices in a readable currency format.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+public/
+Contains public assets like images, favicons, and other static files.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+next.config.js
+This is the configuration file for the Next.js project, where you can set environment variables, configure webpack, etc.
+
+Installation
+To run this project locally, follow these steps:
+
+Clone the repository:
+git clone https://github.com/HillaArts/laravel_ecommerce-frontend.git cd ecommerce-frontend
+
+Install dependencies:
+npm install
+
+Run the development server:
+npm run dev Your application will be available at http://localhost:3000.
+
+Features
+Cart Management:
+Users can add items to their cart, view the cart, and remove items.
+
+Order Placement:
+Users can place orders directly from their cart.
+
+Order History:
+Users can view the orders they have placed.
+
+Dynamic UI:
+The frontend is dynamic and responsive, providing a smooth user experience across devices.
+
+Technologies Used
+Next.js:
+A React-based framework for building the frontend.
+
+Tailwind CSS:
+Utility-first CSS framework for building responsive, modern UIs.
+
+Axios:
+HTTP client for making requests to the backend API.
+
+JavaScript (ES6+):
+Used throughout the application to write modern, clean code.
+
+Contribution
+Feel free to fork the repository and submit pull requests if you have improvements or bug fixes. Please make sure to write tests for any new features or fixes.
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
