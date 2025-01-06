@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FaShoppingCart, FaClipboardList } from 'react-icons/fa';
+import { FaShoppingCart, FaClipboardList, FaStore } from 'react-icons/fa';
 
 export default function HomePage() {
   return (
@@ -12,6 +12,10 @@ export default function HomePage() {
       </p>
       
       <div className="flex space-x-6 mt-6">
+        <Link href="/products" className="flex items-center justify-center bg-white text-orange-500 hover:bg-orange-500 hover:text-white px-8 py-4 rounded-lg shadow-xl transition-transform transform hover:scale-105">
+          <FaStore className="mr-2 text-2xl" />
+          Browse Products
+        </Link>
         <Link href="/cart" className="flex items-center justify-center bg-white text-blue-500 hover:bg-blue-500 hover:text-white px-8 py-4 rounded-lg shadow-xl transition-transform transform hover:scale-105">
           <FaShoppingCart className="mr-2 text-2xl" />
           Go to Cart
