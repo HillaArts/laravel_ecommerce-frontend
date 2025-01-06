@@ -9,14 +9,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const CartPage = () => {
-  const [cart, setCart] = useState(null);
+  const [cart, setCart] = useState([]); // Initialize cart as an empty array
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchCart = async () => {
       try {
         const data = await viewCart();
-        setCart(data);
+        setCart(data || []); // Ensure cart is always an array
       } catch (error) {
         toast.error('Error fetching your cart. Please try again!');
       } finally {
@@ -26,16 +26,6 @@ const CartPage = () => {
 
     fetchCart();
   }, []);
-
-  // const handleAddToCart = async (product) => {
-  //   try {
-  //     const updatedCart = await addToCart(product);
-  //     setCart(updatedCart);
-  //     toast.success('Item added to cart!');
-  //   } catch (error) {
-  //     toast.error('Failed to add item to cart. Please try again.');
-  //   }
-  // };
 
   const handleRemove = async (productId) => {
     try {
@@ -47,18 +37,6 @@ const CartPage = () => {
     }
   };
 
-  // const handleUpdateQuantity = async (productId, newQuantity) => {
-  //   try {
-  //     const updatedItem = await updateCartQuantity(productId, newQuantity);
-  //     setCart(cart.map((item) =>
-  //       item.productId === productId ? { ...item, quantity: updatedItem.quantity } : item
-  //     ));
-  //     toast.info('Quantity updated successfully.');
-  //   } catch (error) {
-  //     toast.error('Failed to update the quantity. Try again.');
-  //   }
-  // };
-
   if (loading) return <Loader />;
 
   return (
@@ -69,20 +47,18 @@ const CartPage = () => {
           Your Shopping Cart
         </h2>
 
-        {cart && cart.length > 0 ? (
+        {Array.isArray(cart) && cart.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {cart.map((item) => (
               <CartItem
                 key={item.productId}
                 item={item}
                 onRemove={handleRemove}
-                onUpdateQuantity={handleUpdateQuantity}
               />
             ))}
           </div>
         ) : (
           <div className="flex flex-col items-center text-gray-500 mt-16">
-            {/* Unique empty cart image */}
             <img
               src="/Creating-a-Shopping-Cart-With-Laravel.png"
               alt="Empty Cart"
@@ -100,8 +76,7 @@ const CartPage = () => {
           </div>
         )}
 
-        {/* Floating Cart Summary */}
-        {cart && cart.length > 0 && (
+        {Array.isArray(cart) && cart.length > 0 && (
           <div className="fixed bottom-4 right-4 bg-white p-6 rounded-lg shadow-xl transform transition-all animate-slide-up">
             <h3 className="text-xl font-semibold mb-4">Cart Summary</h3>
             <p className="text-gray-600">
